@@ -1,0 +1,569 @@
+
+> react-portfolio@0.1.0 start
+> react-scripts start
+
+(node:63265) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:63265) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view react-portfolio in the browser.
+
+  Local:            http://localhost:5173
+  On Your Network:  http://10.0.0.109:5173
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/logo.j' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/components'
+ERROR in ./src/components/Navbar.jsx 7:0-36
+Module not found: Error: Can't resolve '../assets/logo.j' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/components'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/logo.jpe' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/components'
+ERROR in ./src/components/Navbar.jsx 7:0-38
+Module not found: Error: Can't resolve '../assets/logo.jpe' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/components'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/logo.jpeg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/components'
+ERROR in ./src/components/Navbar.jsx 7:0-39
+Module not found: Error: Can't resolve '../assets/logo.jpeg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/components'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/headshot.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+ERROR in ./src/pages/About.jsx 5:0-46
+Module not found: Error: Can't resolve '../assets/headshot.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/headshot.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+ERROR in ./src/pages/Home.jsx 6:0-46
+Module not found: Error: Can't resolve '../assets/headshot.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Syntax error: /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/App.css Unknown word display (33:5)
+  31 |   .hero {
+  32 |     marg
+> 33 |     display: flex;
+     |     ^
+  34 |     flex-direction: column;
+  35 |     align-items: center;
+ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css)
+Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+SyntaxError
+
+(33:5) /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/App.css Unknown word display
+
+  31 |   .hero {
+  32 |     marg
+> 33 |     display: flex;
+     |     ^
+  34 |     flex-direction: column;
+  35 |     align-items: center;
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Syntax error: /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/App.css Unexpected } (47:3)
+  45 |       }
+  46 |       
+> 47 |   }
+     |   ^
+  48 |   
+  49 |   .hero h1 {
+ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css)
+Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+SyntaxError
+
+(47:3) /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/App.css Unexpected }
+
+  45 |       }
+  46 |       
+> 47 |   }
+     |   ^
+  48 |   
+  49 |   .hero h1 {
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '/assets/hero-bg.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
+Module not found: Error: Can't resolve '/assets/hero-bg.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '/assets/hero-bg.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
+Module not found: Error: Can't resolve '/assets/hero-bg.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '/assets/hero-bg.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
+Module not found: Error: Can't resolve '/assets/hero-bg.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '/assets/hero-bg.jpg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+ERROR in ./src/App.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App.css) 5:36-83
+Module not found: Error: Can't resolve '/assets/hero-bg.jpg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Projects.jsx
+Syntax error: Invalid regular expression flag. (1:9) (1:9)
+ERROR in ./src/pages/Projects.jsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages/Projects.jsx: Invalid regular expression flag. (1:9)
+
+> 1 | /Users/mohammednaeempatel/.Trash/hero-bg.jpg
+    |          ^
+    at constructor (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:367:19)
+    at FlowParserMixin.raise (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:6630:19)
+    at FlowParserMixin.readRegexp (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:6395:14)
+    at FlowParserMixin.parseExprAtom (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:11317:16)
+    at FlowParserMixin.parseExprAtom (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:4797:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:11085:23)
+    at FlowParserMixin.parseUpdate (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:11070:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:11050:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:10903:61)
+    at FlowParserMixin.parseExprOps (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:10908:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:10885:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:10835:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:3582:18)
+    at FlowParserMixin.parseExpressionBase (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:10788:23)
+    at /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:10784:39
+    at FlowParserMixin.allowInAnd (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12431:16)
+    at FlowParserMixin.parseExpression (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:10784:17)
+    at FlowParserMixin.parseStatementContent (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12904:23)
+    at FlowParserMixin.parseStatementLike (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12776:17)
+    at FlowParserMixin.parseStatementLike (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:2949:24)
+    at FlowParserMixin.parseModuleItem (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12753:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:13325:36)
+    at FlowParserMixin.parseBlockBody (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:13318:10)
+    at FlowParserMixin.parseProgram (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12634:10)
+    at FlowParserMixin.parseTopLevel (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12624:25)
+    at FlowParserMixin.parseTopLevel (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:3718:28)
+    at FlowParserMixin.parse (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:14501:10)
+    at parse (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:14535:38)
+    at parser (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/gensync/index.js:261:32)
+    at /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/gensync/index.js:223:11)
+
+ERROR in [eslint] 
+src/pages/Projects.jsx
+  Line 1:9:  Parsing error: Invalid regular expression flag. (1:9)
+
+webpack compiled with 2 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/project1.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+ERROR in ./src/pages/Projects.jsx 5:0-46
+Module not found: Error: Can't resolve '../assets/project1.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+ERROR in ./src/pages/Projects.jsx 6:0-48
+Module not found: Error: Can't resolve '../assets/project2.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/project1.' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+ERROR in ./src/pages/Projects.jsx 5:0-43
+Module not found: Error: Can't resolve '../assets/project1.' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+ERROR in ./src/pages/Projects.jsx 6:0-48
+Module not found: Error: Can't resolve '../assets/project2.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+ERROR in ./src/pages/Projects.jsx 7:0-48
+Module not found: Error: Can't resolve '../assets/project3.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+webpack compiled with 3 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/project2.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+ERROR in ./src/pages/Projects.jsx 6:0-48
+Module not found: Error: Can't resolve '../assets/project2.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+ERROR in ./src/pages/Projects.jsx 7:0-48
+Module not found: Error: Can't resolve '../assets/project3.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/project3.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+ERROR in ./src/pages/Projects.jsx 7:0-48
+Module not found: Error: Can't resolve '../assets/project3.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/logo.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/components'
+ERROR in ./src/components/Navbar.jsx 7:0-38
+Module not found: Error: Can't resolve '../assets/logo.svg' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/components'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Failed to compile.
+
+Module not found: Error: Can't resolve './pages/Home' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+ERROR in ./src/App.js 8:0-32
+Module not found: Error: Can't resolve './pages/Home' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+ERROR in ./src/App.js 9:0-34
+Module not found: Error: Can't resolve './pages/About' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+ERROR in ./src/App.js 10:0-40
+Module not found: Error: Can't resolve './pages/Projects' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+ERROR in ./src/App.js 11:0-40
+Module not found: Error: Can't resolve './pages/Services' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+ERROR in ./src/App.js 12:0-38
+Module not found: Error: Can't resolve './pages/Contact' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+webpack compiled with 5 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Failed to compile.
+
+Module not found: Error: Can't resolve './pages/Home' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+ERROR in ./src/App.js 8:0-32
+Module not found: Error: Can't resolve './pages/Home' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+ERROR in ./src/App.js 9:0-34
+Module not found: Error: Can't resolve './pages/About' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+ERROR in ./src/App.js 10:0-40
+Module not found: Error: Can't resolve './pages/Projects' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+ERROR in ./src/App.js 11:0-40
+Module not found: Error: Can't resolve './pages/Services' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+ERROR in ./src/App.js 12:0-38
+Module not found: Error: Can't resolve './pages/Contact' in '/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src'
+
+webpack compiled with 5 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
