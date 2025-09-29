@@ -13,7 +13,7 @@ const About = () => (
     </div>
 
     {/* Right: Bio */}
-    <div className="about-body">
+    <div className="about-body">   
       <h1>About Me</h1>
       <h2 className="muted">Mohammednaeem Patel</h2>
       <h3 className="role">Software Engineering Technology – AI Student</h3>

@@ -567,3 +567,82 @@ webpack compiled successfully
 Compiling...
 Compiled successfully!
 webpack compiled successfully
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.jsx
+Syntax error: Identifier 'React' has already been declared. (3:7) (3:7)
+ERROR in ./src/pages/Contact.jsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/src/pages/Contact.jsx: Identifier 'React' has already been declared. (3:7)
+
+  1 | import React, { useState } from 'react';
+  2 | import { useNavigate } from 'react-router-dom';
+> 3 | import React, { useState } from 'react';
+    |        ^
+  4 | import emailjs from 'emailjs-com';
+  5 |
+  6 | const Contact = () => {
+    at constructor (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:367:19)
+    at FlowParserMixin.raise (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:6630:19)
+    at FlowScopeHandler.checkRedeclarationInScope (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:1647:19)
+    at FlowScopeHandler.declareName (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:1613:12)
+    at FlowScopeHandler.declareName (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:1714:11)
+    at FlowParserMixin.declareNameFromIdentifier (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:7594:16)
+    at FlowParserMixin.checkIdentifier (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:7590:12)
+    at FlowParserMixin.checkLVal (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:7529:12)
+    at FlowParserMixin.finishImportSpecifier (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:14275:10)
+    at FlowParserMixin.parseImportSpecifierLocal (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:3414:31)
+    at FlowParserMixin.maybeParseDefaultImportSpecifier (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:14379:12)
+    at FlowParserMixin.parseImportSpecifiersAndAfter (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:14248:29)
+    at FlowParserMixin.parseImport (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:14244:17)
+    at FlowParserMixin.parseStatementContent (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12885:27)
+    at FlowParserMixin.parseStatementLike (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12776:17)
+    at FlowParserMixin.parseStatementLike (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:2949:24)
+    at FlowParserMixin.parseModuleItem (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12753:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:13325:36)
+    at FlowParserMixin.parseBlockBody (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:13318:10)
+    at FlowParserMixin.parseProgram (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12634:10)
+    at FlowParserMixin.parseTopLevel (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:12624:25)
+    at FlowParserMixin.parseTopLevel (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:3718:28)
+    at FlowParserMixin.parse (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:14501:10)
+    at parse (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/parser/lib/index.js:14535:38)
+    at parser (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+    at normalizeFile.next (<anonymous>)
+    at run (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/core/lib/transformation/index.js:22:50)
+    at run.next (<anonymous>)
+    at transform (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/@babel/core/lib/transform.js:22:33)
+    at transform.next (<anonymous>)
+    at step (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/gensync/index.js:261:32)
+    at /Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/Users/mohammednaeempatel/Documents/Sidebar/coding/Projects/react-portfolio/node_modules/gensync/index.js:223:11)
+
+ERROR in [eslint] 
+src/pages/Contact.jsx
+  Line 3:7:  Parsing error: Identifier 'React' has already been declared. (3:7)
+
+webpack compiled with 2 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully

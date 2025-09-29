@@ -21,7 +21,7 @@ const Services = () => (
         title="Full-Stack Development" 
         desc="Building modern web applications with React, Node.js, and the MERN stack." 
       />
-      <ServiceItem 
+      <ServiceItem
         icon={FiCpu} 
         title="AI & Automation" 
         desc="Creating AI-powered tools and research assistants using LangChain, LLMs, and Python." 
