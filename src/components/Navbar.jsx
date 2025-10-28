@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 // Navbar with custom logo and responsive links
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleToggle = () => setOpen((o) => !o);
   const handleNavigate = () => setOpen(false);
 
   return (
-    <nav className="navbar">
+    <nav
+      className="navbar"
+      style={{
+        background: scrolled
+          ? "rgba(10, 14, 39, 0.95)"
+          : "rgba(10, 14, 39, 0.8)",
+        boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.3)" : "none",
+      }}
+    >
       <div className="container nav-container">
         <Link to="/" className="brand" onClick={handleNavigate}>
           <img src={logo} alt="Logo" className="brand-logo" />
@@ -24,9 +41,19 @@ const Navbar = () => {
           aria-expanded={open}
           onClick={handleToggle}
         >
-          <span className="bar" />
-          <span className="bar" />
-          <span className="bar" />
+          <span
+            className="bar"
+            style={{
+              transform: open ? "rotate(45deg) translate(5px, 5px)" : "none",
+            }}
+          />
+          <span className="bar" style={{ opacity: open ? "0" : "1" }} />
+          <span
+            className="bar"
+            style={{
+              transform: open ? "rotate(-45deg) translate(7px, -6px)" : "none",
+            }}
+          />
         </button>
 
         {/* Nav links */}
@@ -44,7 +71,7 @@ const Navbar = () => {
             to="/about"
             className={({ isActive }) => (isActive ? "active" : undefined)}
           >
-            About Me
+            About
           </NavLink>
           <NavLink
             onClick={handleNavigate}
@@ -65,7 +92,7 @@ const Navbar = () => {
             to="/contact"
             className={({ isActive }) => (isActive ? "active" : undefined)}
           >
-            Contact Me
+            Contact
           </NavLink>
         </div>
       </div>
