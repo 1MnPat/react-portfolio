@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const qualificationSchema = new mongoose.Schema(
+const qualificationSchema = new mongoose.Schema( 
     {
         title: { type: String, required: true, trim: true },
         firstname: { type: String, required: true, trim: true },
