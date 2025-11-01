@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Collection routes
 router.get('/', ctrl.getAll);
-router.post(
+router.post( 
     '/',
     [
         body('title').notEmpty(),

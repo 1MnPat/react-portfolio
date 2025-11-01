@@ -4,7 +4,7 @@ const ctrl = require('../controllers/qualificationController');
 
 const router = express.Router();
 
-// Collection routes
+// Collection routes 
 router.get('/', ctrl.getAll);
 router.post(
     '/',

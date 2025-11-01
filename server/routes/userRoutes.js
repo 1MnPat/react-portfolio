@@ -4,7 +4,7 @@ const auth = require('../middleware/auth');
 const userCtrl = require('../controllers/userController');
 
 const router = express.Router();
-
+ 
 // Collection routes
 router.get('/', auth, userCtrl.getAll);
 router.post(

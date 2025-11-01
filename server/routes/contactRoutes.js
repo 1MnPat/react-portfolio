@@ -2,7 +2,7 @@ const express = require('express');
 const { body } = require('express-validator');
 const ctrl = require('../controllers/contactController');
 
-const router = express.Router();
+const router = express.Router() ;
 
 // Collection routes
 router.get('/', ctrl.getAll);
