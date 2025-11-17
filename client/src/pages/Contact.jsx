@@ -1,23 +1,99 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { FiMail, FiMapPin, FiSend } from "react-icons/fi";
+import api from "../utils/api";
 
 const Contact = () => {
-  const navigate = useNavigate();
-  const [form, setForm] = useState({
-    name: "",
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
     email: "",
-    phone: "",
-    message: "",
   });
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
 
-  const onSubmit = (e) => {
+    // Clear error for this field
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.firstname.trim()) {
+      newErrors.firstname = "First name is required";
+    }
+
+    if (!formData.lastname.trim()) {
+      newErrors.lastname = "Last name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const resetForm = () => {
+    setFormData({
+      firstname: "",
+      lastname: "",
+      email: "",
+    });
+    setErrors({});
+    setSubmitted(false);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => navigate("/"), 2000);
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await api.post("/contacts", {
+        firstname: formData.firstname.trim(),
+        lastname: formData.lastname.trim(),
+        email: formData.email.trim(),
+      });
+
+      setSubmitted(true);
+      resetForm();
+
+      // Reset success state after 3 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      const errorMessage =
+        error.response?.data?.message ||
+        error.response?.data?.errors?.[0]?.msg ||
+        error.message ||
+        "Failed to send message. Please try again.";
+      setErrors({
+        submit: errorMessage,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -108,70 +184,149 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="card contact-form" onSubmit={onSubmit}>
+        <form className="card contact-form" onSubmit={handleSubmit}>
           <div className="card-body">
             <h3 style={{ marginBottom: "1.5rem" }}>Send a Message</h3>
+
+            {errors.submit && (
+              <div
+                style={{
+                  background: "rgba(239, 68, 68, 0.1)",
+                  border: "1px solid rgba(239, 68, 68, 0.3)",
+                  color: "#ef4444",
+                  padding: "0.75rem 1rem",
+                  borderRadius: "8px",
+                  marginBottom: "1.5rem",
+                  fontSize: "0.9rem",
+                }}
+              >
+                {errors.submit}
+              </div>
+            )}
+
+            {submitted && (
+              <div
+                style={{
+                  background: "rgba(16, 185, 129, 0.1)",
+                  border: "1px solid rgba(16, 185, 129, 0.3)",
+                  color: "#10b981",
+                  padding: "0.75rem 1rem",
+                  borderRadius: "8px",
+                  marginBottom: "1.5rem",
+                  fontSize: "0.9rem",
+                }}
+              >
+                Thanks for reaching out! I'll get back to you soon.
+              </div>
+            )}
+
             {!submitted ? (
               <>
-                <div className="form-row">
-                  <label htmlFor="name">Name *</label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={form.name}
-                    onChange={onChange}
-                    required
-                    placeholder="Your full name"
-                  />
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "1rem",
+                  }}
+                >
+                  <div className="form-row">
+                    <label htmlFor="firstname">
+                      First Name <span style={{ color: "#ef4444" }}>*</span>
+                    </label>
+                    <input
+                      id="firstname"
+                      name="firstname"
+                      type="text"
+                      value={formData.firstname}
+                      onChange={handleChange}
+                      required
+                      placeholder="John"
+                      disabled={loading}
+                    />
+                    {errors.firstname && (
+                      <span
+                        style={{
+                          color: "#ef4444",
+                          fontSize: "0.85rem",
+                          marginTop: "0.25rem",
+                        }}
+                      >
+                        {errors.firstname}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="form-row">
+                    <label htmlFor="lastname">
+                      Last Name <span style={{ color: "#ef4444" }}>*</span>
+                    </label>
+                    <input
+                      id="lastname"
+                      name="lastname"
+                      type="text"
+                      value={formData.lastname}
+                      onChange={handleChange}
+                      required
+                      placeholder="Doe"
+                      disabled={loading}
+                    />
+                    {errors.lastname && (
+                      <span
+                        style={{
+                          color: "#ef4444",
+                          fontSize: "0.85rem",
+                          marginTop: "0.25rem",
+                        }}
+                      >
+                        {errors.lastname}
+                      </span>
+                    )}
+                  </div>
                 </div>
+
                 <div className="form-row">
-                  <label htmlFor="email">Email *</label>
+                  <label htmlFor="email">
+                    Email <span style={{ color: "#ef4444" }}>*</span>
+                  </label>
                   <input
                     id="email"
                     name="email"
                     type="email"
-                    value={form.email}
-                    onChange={onChange}
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                     placeholder="you@example.com"
+                    disabled={loading}
                   />
+                  {errors.email && (
+                    <span
+                      style={{
+                        color: "#ef4444",
+                        fontSize: "0.85rem",
+                        marginTop: "0.25rem",
+                      }}
+                    >
+                      {errors.email}
+                    </span>
+                  )}
                 </div>
-                <div className="form-row">
-                  <label htmlFor="phone">Phone</label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={form.phone}
-                    onChange={onChange}
-                    placeholder="+1 (555) 000-0000 (Optional)"
-                  />
-                </div>
-                <div className="form-row">
-                  <label htmlFor="message">Message *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    value={form.message}
-                    onChange={onChange}
-                    required
-                    placeholder="Tell me about your project goals, timeline, and how I can help..."
-                  />
-                </div>
+
                 <button
                   type="submit"
                   className="button"
+                  disabled={loading}
                   style={{
                     width: "100%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "0.5rem",
+                    marginTop: "1rem",
+                    opacity: loading ? 0.7 : 1,
+                    cursor: loading ? "not-allowed" : "pointer",
                   }}
                 >
-                  <FiSend /> Send Message
+                  <FiSend /> {loading ? "Sending..." : "Send Message"}
                 </button>
               </>
             ) : (
@@ -194,7 +349,7 @@ const Contact = () => {
                     marginTop: "0.5rem",
                   }}
                 >
-                  I'll get back to you soon. Redirecting...
+                  I'll get back to you soon.
                 </p>
               </div>
             )}
@@ -206,6 +361,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-
