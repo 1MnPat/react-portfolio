@@ -18,7 +18,7 @@ exports.register = async (req, res) => {
 
         const user = await User.create({ name, email, password });
         const token = signToken(user.id);
-        res.status(201).json({ user: { id: user.id, name: user.name, email: user.email }, token });
+        res.status(201).json({ user: { id: user.id, name: user.name, email: user.email, role: user.role }, token });
     } catch (err) {
         res.status(500).json({ message: 'Registration failed', error: err.message });
     }
@@ -36,7 +36,7 @@ exports.login = async (req, res) => {
         const matches = await user.comparePassword(password);
         if (!matches) return res.status(401).json({ message: 'Invalid credentials' });
         const token = signToken(user.id);
-        res.json({ user: { id: user.id, name: user.name, email: user.email }, token });
+        res.json({ user: { id: user.id, name: user.name, email: user.email, role: user.role }, token });
     } catch (err) {
         res.status(500).json({ message: 'Login failed', error: err.message });
     }
@@ -110,7 +110,7 @@ exports.delete = exports.deleteUser;
 exports.create = async (req, res) => {
     try {
         const user = await User.create(req.body);
-        res.status(201).json({ id: user.id, name: user.name, email: user.email });
+        res.status(201).json({ id: user.id, name: user.name, email: user.email, role: user.role });
     } catch (err) {
         res.status(500).json({ message: 'Failed to create user', error: err.message });
     }
