@@ -42,7 +42,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 connectDatabase(process.env.MONGODB_URI)
   .then(() => {
