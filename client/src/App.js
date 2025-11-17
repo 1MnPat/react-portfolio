@@ -7,6 +7,19 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+// CRUD components
+import ContactsList from './pages/ContactsList';
+import ContactForm from './pages/ContactForm';
+import ContactEdit from './pages/ContactEdit';
+import ProjectsList from './pages/ProjectsList';
+import ProjectFormNew from './pages/ProjectFormNew';
+import ProjectEdit from './pages/ProjectEdit';
+import QualificationsList from './pages/QualificationsList';
+import QualificationFormNew from './pages/QualificationFormNew';
+import QualificationEdit from './pages/QualificationEdit';
+import ProtectedRoute from './components/ProtectedRoute';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 function App() {
@@ -22,6 +35,21 @@ function App() {
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/services" element={<Services />} />
                     <Route path="/contact" element={<Contact />} />
+                    {/* Authentication Routes */}
+                    <Route path="/signin" element={<SignIn />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    {/* Contacts CRUD Routes */}
+                    <Route path="/contacts" element={<ContactsList />} />
+                    <Route path="/contacts/new" element={<ProtectedRoute adminOnly={true}><ContactForm /></ProtectedRoute>} />
+                    <Route path="/contacts/edit/:id" element={<ProtectedRoute adminOnly={true}><ContactEdit /></ProtectedRoute>} />
+                    {/* Projects CRUD Routes */}
+                    <Route path="/projects-list" element={<ProjectsList />} />
+                    <Route path="/projects/new" element={<ProtectedRoute adminOnly={true}><ProjectFormNew /></ProtectedRoute>} />
+                    <Route path="/projects/edit/:id" element={<ProtectedRoute adminOnly={true}><ProjectEdit /></ProtectedRoute>} />
+                    {/* Qualifications CRUD Routes */}
+                    <Route path="/qualifications" element={<QualificationsList />} />
+                    <Route path="/qualifications/new" element={<ProtectedRoute adminOnly={true}><QualificationFormNew /></ProtectedRoute>} />
+                    <Route path="/qualifications/edit/:id" element={<ProtectedRoute adminOnly={true}><QualificationEdit /></ProtectedRoute>} />
                 </Routes>
             </main>
             <footer className="footer">
