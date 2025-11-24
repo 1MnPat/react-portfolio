@@ -1,43 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import api from "../utils/api";
 
-const ContactEdit = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+const ProjectForm = () => {
   const [formData, setFormData] = useState({
+    title: "",
     firstname: "",
     lastname: "",
     email: "",
+    completion: "",
+    description: "",
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [fetching, setFetching] = useState(true);
-
-  useEffect(() => {
-    fetchContact();
-  }, [id]);
-
-  const fetchContact = async () => {
-    try {
-      setFetching(true);
-      const data = await api.get(`/contacts/${id}`);
-      setFormData({
-        firstname: data.firstname || "",
-        lastname: data.lastname || "",
-        email: data.email || "",
-      });
-    } catch (err) {
-      setErrors({
-        submit:
-          err.response?.data?.message ||
-          err.message ||
-          "Failed to fetch contact",
-      });
-    } finally {
-      setFetching(false);
-    }
-  };
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,6 +21,7 @@ const ContactEdit = () => {
       [name]: value,
     }));
 
+    // Clear error for this field
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -56,6 +32,10 @@ const ContactEdit = () => {
 
   const validateForm = () => {
     const newErrors = {};
+
+    if (!formData.title.trim()) {
+      newErrors.title = "Project title is required";
+    }
 
     if (!formData.firstname.trim()) {
       newErrors.firstname = "First name is required";
@@ -71,8 +51,29 @@ const ContactEdit = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
+    if (!formData.completion) {
+      newErrors.completion = "Completion date is required";
+    }
+
+    if (!formData.description.trim()) {
+      newErrors.description = "Description is required";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  const resetForm = () => {
+    setFormData({
+      title: "",
+      firstname: "",
+      lastname: "",
+      email: "",
+      completion: "",
+      description: "",
+    });
+    setErrors({});
+    setSubmitted(false);
   };
 
   const handleSubmit = async (e) => {
@@ -85,19 +86,28 @@ const ContactEdit = () => {
     setLoading(true);
 
     try {
-      await api.put(`/contacts/${id}`, {
+      await api.post("/projects", {
+        title: formData.title.trim(),
         firstname: formData.firstname.trim(),
         lastname: formData.lastname.trim(),
         email: formData.email.trim(),
+        completion: new Date(formData.completion),
+        description: formData.description.trim(),
       });
 
-      navigate("/contacts");
+      setSubmitted(true);
+      resetForm();
+
+      // Reset success state after 3 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
     } catch (error) {
       const errorMessage =
         error.response?.data?.message ||
         error.response?.data?.errors?.[0]?.msg ||
         error.message ||
-        "Failed to update contact. Please try again.";
+        "Failed to submit project. Please try again.";
       setErrors({
         submit: errorMessage,
       });
@@ -106,23 +116,13 @@ const ContactEdit = () => {
     }
   };
 
-  if (fetching) {
-    return (
-      <section className="container py-6">
-        <div style={{ textAlign: "center", padding: "4rem" }}>
-          <p className="muted">Loading contact...</p>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="container py-6">
       <div style={{ maxWidth: "700px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-          <h1>Edit Contact</h1>
+          <h1>Add Project</h1>
           <p className="muted" style={{ marginTop: "0.5rem" }}>
-            Update contact information
+            Share your project details and achievements.
           </p>
         </div>
 
@@ -143,6 +143,49 @@ const ContactEdit = () => {
                 {errors.submit}
               </div>
             )}
+
+            {submitted && (
+              <div
+                style={{
+                  background: "rgba(16, 185, 129, 0.1)",
+                  border: "1px solid rgba(16, 185, 129, 0.3)",
+                  color: "#10b981",
+                  padding: "0.75rem 1rem",
+                  borderRadius: "8px",
+                  marginBottom: "1.5rem",
+                  fontSize: "0.9rem",
+                }}
+              >
+                Project added successfully!
+              </div>
+            )}
+
+            <div className="form-row">
+              <label htmlFor="title">
+                Project Title <span style={{ color: "#ef4444" }}>*</span>
+              </label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                value={formData.title}
+                onChange={handleChange}
+                required
+                placeholder="e.g., AI Research Assistant"
+                disabled={loading}
+              />
+              {errors.title && (
+                <span
+                  style={{
+                    color: "#ef4444",
+                    fontSize: "0.85rem",
+                    marginTop: "0.25rem",
+                  }}
+                >
+                  {errors.title}
+                </span>
+              )}
+            </div>
 
             <div
               style={{
@@ -233,42 +276,72 @@ const ContactEdit = () => {
               )}
             </div>
 
-            <div
+            <div className="form-row">
+              <label htmlFor="completion">
+                Completion Date <span style={{ color: "#ef4444" }}>*</span>
+              </label>
+              <input
+                id="completion"
+                name="completion"
+                type="date"
+                value={formData.completion}
+                onChange={handleChange}
+                required
+                disabled={loading}
+              />
+              {errors.completion && (
+                <span
+                  style={{
+                    color: "#ef4444",
+                    fontSize: "0.85rem",
+                    marginTop: "0.25rem",
+                  }}
+                >
+                  {errors.completion}
+                </span>
+              )}
+            </div>
+
+            <div className="form-row">
+              <label htmlFor="description">
+                Description <span style={{ color: "#ef4444" }}>*</span>
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                rows="5"
+                value={formData.description}
+                onChange={handleChange}
+                required
+                placeholder="Describe your project, technologies used, and key features..."
+                disabled={loading}
+              />
+              {errors.description && (
+                <span
+                  style={{
+                    color: "#ef4444",
+                    fontSize: "0.85rem",
+                    marginTop: "0.25rem",
+                  }}
+                >
+                  {errors.description}
+                </span>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="button"
+              disabled={loading}
               style={{
-                display: "flex",
-                gap: "1rem",
-                marginTop: "1.5rem",
+                width: "100%",
+                marginTop: "1rem",
+                opacity: loading ? 0.7 : 1,
+                cursor: loading ? "not-allowed" : "pointer",
               }}
             >
-              <button
-                type="button"
-                onClick={() => navigate("/contacts")}
-                style={{
-                  background: "transparent",
-                  border: "2px solid var(--border)",
-                  color: "var(--text)",
-                  padding: "12px 24px",
-                  borderRadius: "12px",
-                  cursor: "pointer",
-                  flex: 1,
-                }}
-                disabled={loading}
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="button"
-                disabled={loading}
-                style={{
-                  flex: 1,
-                  opacity: loading ? 0.7 : 1,
-                  cursor: loading ? "not-allowed" : "pointer",
-                }}
-              >
-                {loading ? "Updating..." : "Update Contact"}
-              </button>
-            </div>
+              {loading ? "Submitting..." : "Add Project"}
+            </button>
           </div>
         </form>
       </div>
@@ -276,7 +349,4 @@ const ContactEdit = () => {
   );
 };
 
-export default ContactEdit;
-
-
-
+export default ProjectForm;
