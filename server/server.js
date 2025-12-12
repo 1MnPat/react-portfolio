@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+require('dotenv').config(); // <<< IMPORTANT
 
 const { connectDatabase } = require('./config/database');
 
@@ -15,7 +15,11 @@ const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["https://your-frontend.vercel.app"], // <<< FIX THIS
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,18 +37,10 @@ app.use('/api/contacts', contactRoutes);
 // Health check
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
-// Serve client in production
-if (process.env.NODE_ENV === 'production') {
-  const clientBuildPath = path.join(__dirname, '..', 'client', 'build');
-  app.use(express.static(clientBuildPath));
-  app.get('*', (_req, res) => {
-    res.sendFile(path.join(clientBuildPath, 'index.html'));
-  });
-}
-
+// PORT
 const PORT = process.env.PORT || 5001;
 
-connectDatabase(process.env.MONGODB_URI)
+connectDatabase(process.env.MONGO_URI)   // <<< FIX THIS
   .then(() => {
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
