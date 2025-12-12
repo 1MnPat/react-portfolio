@@ -21,9 +21,17 @@ const Navbar = () => {
   const handleNavigate = () => setOpen(false);
 
   const handleLogout = () => {
-    logout();
-    navigate("/");
+    // Close mobile menu first
     handleNavigate();
+    
+    // Clear authentication state
+    logout();
+    
+    // Navigate to home page and clear any protected routes
+    // Using replace: true prevents back button from going to protected pages
+    setTimeout(() => {
+      navigate("/", { replace: true });
+    }, 50);
   };
 
   return (

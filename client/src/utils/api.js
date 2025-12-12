@@ -28,10 +28,17 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle 401 Unauthorized
-    if (error.response?.status === 401) {
+    // Handle 401 Unauthorized (but not for login/register POST requests)
+    const isAuthEndpoint = error.config?.url?.includes('/users/login') || 
+                          (error.config?.url?.includes('/users') && error.config?.method === 'post');
+    
+    if (error.response?.status === 401 && !isAuthEndpoint) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      // Redirect to sign in if not already there
+      if (window.location.pathname !== '/signin' && window.location.pathname !== '/signup') {
+        window.location.href = '/signin';
+      }
     }
     return Promise.reject(error);
   }
@@ -52,6 +59,7 @@ export const authAPI = {
 };
 
 export default api;
+
 
 
 

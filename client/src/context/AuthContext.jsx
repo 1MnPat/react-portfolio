@@ -42,10 +42,16 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    // Clear state
     setUser(null);
     setToken(null);
+    
+    // Clear localStorage
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    
+    // Force a small delay to ensure state updates propagate
+    return Promise.resolve();
   };
 
   const isAuthenticated = !!user && !!token;
@@ -67,6 +73,7 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
 
 
 

@@ -97,13 +97,21 @@ const SignUp = () => {
         navigate("/");
       }, 1500);
     } catch (error) {
+      console.error('Registration error:', error);
       const errorMessage =
         error.response?.data?.message ||
+        error.response?.data?.error ||
         error.response?.data?.errors?.[0]?.msg ||
         error.message ||
         "Registration failed. Please try again.";
       setErrors({
         submit: errorMessage,
+      });
+      setFormData({
+        name: formData.name,
+        email: formData.email,
+        password: "",
+        confirmPassword: "",
       });
     } finally {
       setLoading(false);

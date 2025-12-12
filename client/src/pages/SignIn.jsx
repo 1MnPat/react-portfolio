@@ -80,13 +80,19 @@ const SignIn = () => {
         navigate("/");
       }, 1500);
     } catch (error) {
+      console.error('Login error:', error);
       const errorMessage =
         error.response?.data?.message ||
+        error.response?.data?.error ||
         error.response?.data?.errors?.[0]?.msg ||
         error.message ||
         "Login failed. Please check your credentials.";
       setErrors({
         submit: errorMessage,
+      });
+      setFormData({
+        email: formData.email,
+        password: "",
       });
     } finally {
       setLoading(false);
