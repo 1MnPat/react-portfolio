@@ -1,7 +1,7 @@
 services:
   - type: static
     name: react-portfolio
-    buildCommand: cd client && npm ci && npm run build
+    buildCommand: cd client && npm install && npm run build
     staticPublishPath: ./client/build
     envVars:
       - key: NODE_ENV
