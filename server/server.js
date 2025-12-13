@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-require('dotenv').config(); // <<< IMPORTANT
+require('dotenv').config(); // <<< 
 
 const { connectDatabase } = require('./config/database');
 
@@ -16,7 +16,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ["https://your-frontend.vercel.app"], // <<< FIX THIS
+  origin: ["https://your-https://mnpat-git-main-1mnpats-projects.vercel.app/"], 
   credentials: true
 }));
 
@@ -40,7 +40,7 @@ app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 // PORT
 const PORT = process.env.PORT || 5001;
 
-connectDatabase(process.env.MONGO_URI)   // <<< FIX THIS
+connectDatabase(process.env.MONGODB_URI)   
   .then(() => {
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
