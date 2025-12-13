@@ -29,6 +29,7 @@
     "server": "npm --prefix server run dev",
     "client": "cd client && npm start",
     "build": "cd client && npm install && npm run build",
+    "start": "npx serve -s client/build -l 10000",
     "test": "cd client && npm test",
     "eject": "cd client && npm run eject"
   },
