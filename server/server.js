@@ -38,7 +38,7 @@ app.use('/api/contacts', contactRoutes);
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
 // PORT
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 connectDatabase(process.env.MONGODB_URI)   
   .then(() => {
