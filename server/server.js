@@ -1,9 +1,7 @@
-const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
-require('dotenv').config(); // <<< 
+require('dotenv').config();
 
 const { connectDatabase } = require('./config/database');
 
@@ -14,19 +12,19 @@ const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
 
-// Middleware
+// ✅ CORS 
 app.use(cors({
-  origin: ["https://your-https://mnpat-git-main-1mnpats-projects.vercel.app/"], 
+  origin: "https://mnpat-git-main-1mnpats-projects.vercel.app",
   credentials: true
 }));
 
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // Root route
-app.get('/', (_req, res) => res.send('{"message": "Welcome to the Portfolio Application"}'));
+app.get('/', (_req, res) =>
+  res.json({ message: 'Welcome to the Portfolio Application' })
+);
 
 // API routes
 app.use('/api/users', userRoutes);
@@ -37,12 +35,13 @@ app.use('/api/contacts', contactRoutes);
 // Health check
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
-// PORT
 const PORT = process.env.PORT || 5000;
 
-connectDatabase(process.env.MONGODB_URI)   
+connectDatabase(process.env.MONGODB_URI)
   .then(() => {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    app.listen(PORT, () =>
+      console.log(`Server running on port ${PORT}`)
+    );
   })
   .catch((err) => {
     console.error('Failed to start server:', err.message);
