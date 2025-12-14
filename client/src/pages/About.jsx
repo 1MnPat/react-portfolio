@@ -35,6 +35,16 @@ const About = () => (
         progress.
       </p>
 
+      <p>
+        I believe in the power of continuous integration and deployment (CI/CD) 
+        to streamline development workflows and ensure code quality. This portfolio 
+        application demonstrates modern development practices including automated 
+        testing, version control with Git, and deployment pipelines. Through 
+        implementing comprehensive unit tests with Jest and React Testing Library, 
+        as well as end-to-end tests with Cypress, I ensure that every feature works 
+        as expected before deployment.
+      </p>
+
       <a
         className="button"
         href="/resume.pdf"

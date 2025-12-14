@@ -14,6 +14,20 @@ const Home = () => (
       leveraging AI technologies, and creating seamless user experiences that
       make a difference.
     </p>
+    <p style={{
+      marginTop: "1.5rem",
+      fontSize: "1.1rem",
+      color: "var(--text-secondary)",
+      lineHeight: "1.8",
+      maxWidth: "800px",
+      margin: "1.5rem auto 0"
+    }}>
+      With a strong foundation in modern web technologies and a passion for continuous learning, 
+      I specialize in building full-stack applications using the MERN stack. My expertise extends 
+      to implementing robust authentication systems, creating responsive user interfaces, and 
+      developing RESTful APIs that power seamless user experiences. I'm always exploring new 
+      technologies and best practices to deliver high-quality, maintainable code.
+    </p>
     <div
       style={{
         display: "flex",
