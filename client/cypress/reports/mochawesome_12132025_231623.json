@@ -1,0 +1,241 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 2,
+    "pending": 0,
+    "failures": 5,
+    "start": "2025-12-14T04:15:36.043Z",
+    "end": "2025-12-14T04:16:23.194Z",
+    "duration": 47151,
+    "testsRegistered": 7,
+    "passPercent": 28.57142857142857,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0e7532a8-3641-470b-b7fc-d7664027e9d7",
+      "title": "",
+      "fullFile": "cypress/e2e/user-registration.cy.js",
+      "file": "cypress/e2e/user-registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f63f13d2-812e-4949-a3ed-46ae6ce1adc3",
+          "title": "User Registration Flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should navigate to sign up page",
+              "fullTitle": "User Registration Flow should navigate to sign up page",
+              "timedOut": null,
+              "duration": 10861,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('nav').should('be.visible');\ncy.contains('Sign Up').click();\ncy.url().should('include', '/signup');\ncy.contains('Create Account').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Create Account' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Create Account' but never did.\n    at Context.eval (webpack://react-portfolio-client/./cypress/e2e/user-registration.cy.js:14:34)",
+                "diff": null
+              },
+              "uuid": "1b3f8927-52b4-43c0-87df-717bf934dc76",
+              "parentUUID": "f63f13d2-812e-4949-a3ed-46ae6ce1adc3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display validation errors for empty form",
+              "fullTitle": "User Registration Flow should display validation errors for empty form",
+              "timedOut": null,
+              "duration": 10307,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/signup');\n// Try to submit empty form\ncy.get('button[type=\"submit\"]').click();\n// Check for validation errors\ncy.contains(/name is required/i).should('be.visible');\ncy.contains(/email is required/i).should('be.visible');\ncy.contains(/password is required/i).should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/name is required/i' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/name is required/i' but never did.\n    at Context.eval (webpack://react-portfolio-client/./cypress/e2e/user-registration.cy.js:24:37)",
+                "diff": null
+              },
+              "uuid": "11ca6bd7-387c-4b48-9fb0-df38e2d98ab0",
+              "parentUUID": "f63f13d2-812e-4949-a3ed-46ae6ce1adc3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display validation error for invalid email",
+              "fullTitle": "User Registration Flow should display validation error for invalid email",
+              "timedOut": null,
+              "duration": 11426,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/signup');\ncy.get('input[name=\"name\"]').type('Test User');\ncy.get('input[name=\"email\"]').type('invalid-email');\ncy.get('input[name=\"password\"]').type('password123');\ncy.get('input[name=\"confirmPassword\"]').type('password123');\ncy.get('button[type=\"submit\"]').click();\ncy.contains(/please enter a valid email/i).should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/please enter a valid email/i' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/please enter a valid email/i' but never did.\n    at Context.eval (webpack://react-portfolio-client/./cypress/e2e/user-registration.cy.js:39:47)",
+                "diff": null
+              },
+              "uuid": "c83fce98-9f2c-407a-8c4d-0bb16426bb8e",
+              "parentUUID": "f63f13d2-812e-4949-a3ed-46ae6ce1adc3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display error when passwords do not match",
+              "fullTitle": "User Registration Flow should display error when passwords do not match",
+              "timedOut": null,
+              "duration": 1331,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/signup');\ncy.get('input[name=\"name\"]').type('Test User');\ncy.get('input[name=\"email\"]').type('test@example.com');\ncy.get('input[name=\"password\"]').type('password123');\ncy.get('input[name=\"confirmPassword\"]').type('different123');\ncy.get('button[type=\"submit\"]').click();\ncy.contains(/passwords do not match/i).should('be.visible');",
+              "err": {},
+              "uuid": "45a26900-9aeb-4b52-b459-330d1c634bfc",
+              "parentUUID": "f63f13d2-812e-4949-a3ed-46ae6ce1adc3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should successfully register a new user",
+              "fullTitle": "User Registration Flow should successfully register a new user",
+              "timedOut": null,
+              "duration": 11951,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = Date.now();\nconst email = `testuser${timestamp}@example.com`;\nconst name = `Test User ${timestamp}`;\nconst password = 'testpassword123';\ncy.visit('/signup');\n// Fill in the registration form\ncy.get('input[name=\"name\"]').type(name);\ncy.get('input[name=\"email\"]').type(email);\ncy.get('input[name=\"password\"]').type(password);\ncy.get('input[name=\"confirmPassword\"]').type(password);\n// Submit the form\ncy.get('button[type=\"submit\"]').click();\n// Wait for successful registration\ncy.contains(/success|registered|welcome/i, {\n  timeout: 10000\n}).should('be.visible');\n// Should redirect to home page or show success message\ncy.url().should('not.include', '/signup');\n// Check if user is logged in (navbar should show user info or logout)\ncy.get('nav').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/success|registered|welcome/i' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/success|registered|welcome/i' but never did.\n    at Context.eval (webpack://react-portfolio-client/./cypress/e2e/user-registration.cy.js:73:67)",
+                "diff": null
+              },
+              "uuid": "906f11de-f408-4896-984d-265cd9d1c0de",
+              "parentUUID": "f63f13d2-812e-4949-a3ed-46ae6ce1adc3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display error for duplicate email",
+              "fullTitle": "User Registration Flow should display error for duplicate email",
+              "timedOut": null,
+              "duration": 899,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// First, register a user\nconst email = 'duplicate@example.com';\nconst name = 'Duplicate User';\nconst password = 'password123';\ncy.register(name, email, password);\ncy.clearLocalStorage();\n// Try to register again with same email\ncy.visit('/signup');\ncy.get('input[name=\"name\"]').type('Another User');\ncy.get('input[name=\"email\"]').type(email);\ncy.get('input[name=\"password\"]').type(password);\ncy.get('input[name=\"confirmPassword\"]').type(password);\ncy.get('button[type=\"submit\"]').click();\n// Should show error message\ncy.contains(/already exists|already registered|email.*taken/i, {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.request()` failed trying to load:\n\nhttp://localhost:5001/api/users\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > AggregateError\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:5001/api/users\n\n-----------------------------------------------------------\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed trying to load:\n\nhttp://localhost:5001/api/users\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > AggregateError\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:5001/api/users\n\n-----------------------------------------------------------\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:135944:70)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:4173:37)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://react-portfolio-client/./cypress/support/commands.js:27:5)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145810:43)\n\nFrom Node.js Internals:\n  RequestError: AggregateError\n      at new r (<embedded>:251:403759)\n      at ee.callback (<embedded>:251:409760)\n      at e.callback.s.callback [as _callback] (<embedded>:251:409206)\n      at s._callback.s.callback.s.callback (<embedded>:314:107368)\n      at ee.emit (node:events:519:28)\n      at ee.onRequestError (<embedded>:314:116310)\n      at ClientRequest.emit (node:events:531:35)\n      at emitErrorEvent (node:_http_client:105:11)\n      at Socket.socketErrorListener (node:_http_client:518:5)\n      at Socket.emit (node:events:519:28)\n      at emitErrorNT (node:internal/streams/destroy:170:8)\n      at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n      at process.processTicksAndRejections (node:internal/process/task_queues:90:21)",
+                "diff": null
+              },
+              "uuid": "fe3cd0ce-0da1-43e4-bb1e-ae517cb9082d",
+              "parentUUID": "f63f13d2-812e-4949-a3ed-46ae6ce1adc3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to sign in page from sign up page",
+              "fullTitle": "User Registration Flow should navigate to sign in page from sign up page",
+              "timedOut": null,
+              "duration": 249,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/signup');\ncy.contains('Sign In').click();\ncy.url().should('include', '/signin');",
+              "err": {},
+              "uuid": "0b0352d0-2b0e-41ae-9ffe-e068ce9cc2fa",
+              "parentUUID": "f63f13d2-812e-4949-a3ed-46ae6ce1adc3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "45a26900-9aeb-4b52-b459-330d1c634bfc",
+            "0b0352d0-2b0e-41ae-9ffe-e068ce9cc2fa"
+          ],
+          "failures": [
+            "1b3f8927-52b4-43c0-87df-717bf934dc76",
+            "11ca6bd7-387c-4b48-9fb0-df38e2d98ab0",
+            "c83fce98-9f2c-407a-8c4d-0bb16426bb8e",
+            "906f11de-f408-4896-984d-265cd9d1c0de",
+            "fe3cd0ce-0da1-43e4-bb1e-ae517cb9082d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 47024,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

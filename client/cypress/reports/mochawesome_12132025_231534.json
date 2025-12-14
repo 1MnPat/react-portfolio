@@ -1,0 +1,237 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 3,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-12-14T04:14:50.586Z",
+    "end": "2025-12-14T04:15:34.319Z",
+    "duration": 43733,
+    "testsRegistered": 7,
+    "passPercent": 42.857142857142854,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2a8196d5-b097-4cfb-b2ec-4d48c7a3c204",
+      "title": "",
+      "fullFile": "cypress/e2e/contact-form.cy.js",
+      "file": "cypress/e2e/contact-form.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "60861b34-2910-49ad-8ef8-7d0e308ec6c2",
+          "title": "Contact Form Submission",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should navigate to contact page",
+              "fullTitle": "Contact Form Submission should navigate to contact page",
+              "timedOut": null,
+              "duration": 2134,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.contains('Contact', {\n  matchCase: false\n}).click();\ncy.url().should('include', '/contact');\ncy.contains(/contact|get in touch|send message/i).should('be.visible');",
+              "err": {},
+              "uuid": "4da58a9f-bb42-4d93-a798-76ad557642d6",
+              "parentUUID": "60861b34-2910-49ad-8ef8-7d0e308ec6c2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display validation errors for empty contact form",
+              "fullTitle": "Contact Form Submission should display validation errors for empty contact form",
+              "timedOut": null,
+              "duration": 5315,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/contact');\n// Try to submit empty form\ncy.get('form').within(() => {\n  cy.get('button[type=\"submit\"]').click();\n});\n// Check for validation errors\ncy.contains(/required|please fill/i, {\n  timeout: 5000\n}).should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 5000ms: Expected to find content: '/required|please fill/i' but never did.",
+                "estack": "AssertionError: Timed out retrying after 5000ms: Expected to find content: '/required|please fill/i' but never did.\n    at Context.eval (webpack://react-portfolio-client/./cypress/e2e/contact-form.cy.js:22:60)",
+                "diff": null
+              },
+              "uuid": "d10b9daf-71bb-442a-a680-32eb2c4fa718",
+              "parentUUID": "60861b34-2910-49ad-8ef8-7d0e308ec6c2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display validation error for invalid email",
+              "fullTitle": "Contact Form Submission should display validation error for invalid email",
+              "timedOut": null,
+              "duration": 10972,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/contact');\ncy.get('input[name=\"firstname\"]').type('John');\ncy.get('input[name=\"lastname\"]').type('Doe');\ncy.get('input[name=\"email\"]').type('invalid-email');\ncy.get('form').within(() => {\n  cy.get('button[type=\"submit\"]').click();\n});\ncy.contains(/valid email|invalid email/i).should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/valid email|invalid email/i' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/valid email|invalid email/i' but never did.\n    at Context.eval (webpack://react-portfolio-client/./cypress/e2e/contact-form.cy.js:36:46)",
+                "diff": null
+              },
+              "uuid": "3c5e2567-c019-4b49-9271-6a668032450c",
+              "parentUUID": "60861b34-2910-49ad-8ef8-7d0e308ec6c2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should successfully submit contact form with valid data",
+              "fullTitle": "Contact Form Submission should successfully submit contact form with valid data",
+              "timedOut": null,
+              "duration": 11266,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = Date.now();\nconst email = `contact${timestamp}@example.com`;\ncy.visit('/contact');\n// Fill in the contact form\ncy.get('input[name=\"firstname\"]').type('John');\ncy.get('input[name=\"lastname\"]').type('Doe');\ncy.get('input[name=\"email\"]').type(email);\n// Submit the form\ncy.get('form').within(() => {\n  cy.get('button[type=\"submit\"]').click();\n});\n// Wait for success message\ncy.contains(/success|thank you|message sent/i, {\n  timeout: 10000\n}).should('be.visible');\n// Form should be reset or show success state\ncy.get('input[name=\"firstname\"]').should('have.value', '');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/success|thank you|message sent/i' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/success|thank you|message sent/i' but never did.\n    at Context.eval (webpack://react-portfolio-client/./cypress/e2e/contact-form.cy.js:56:71)",
+                "diff": null
+              },
+              "uuid": "5c71aa89-5dec-44e0-99dd-bcdabf5cf813",
+              "parentUUID": "60861b34-2910-49ad-8ef8-7d0e308ec6c2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display error message on API failure",
+              "fullTitle": "Contact Form Submission should display error message on API failure",
+              "timedOut": null,
+              "duration": 904,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/contact');\n// Intercept and fail the API request\ncy.intercept('POST', '**/api/contacts', {\n  statusCode: 500,\n  body: {\n    message: 'Server error'\n  }\n}).as('contactError');\ncy.get('input[name=\"firstname\"]').type('John');\ncy.get('input[name=\"lastname\"]').type('Doe');\ncy.get('input[name=\"email\"]').type('test@example.com');\ncy.get('form').within(() => {\n  cy.get('button[type=\"submit\"]').click();\n});\ncy.wait('@contactError');\ncy.contains(/error|failed|try again/i, {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "4f94e4b5-b8bc-49ec-a4f2-7c9523b6723a",
+              "parentUUID": "60861b34-2910-49ad-8ef8-7d0e308ec6c2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show loading state during form submission",
+              "fullTitle": "Contact Form Submission should show loading state during form submission",
+              "timedOut": null,
+              "duration": 1850,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/contact');\n// Intercept and delay the API request\ncy.intercept('POST', '**/api/contacts', {\n  delay: 1000,\n  statusCode: 201,\n  body: {\n    success: true\n  }\n}).as('contactSubmit');\ncy.get('input[name=\"firstname\"]').type('John');\ncy.get('input[name=\"lastname\"]').type('Doe');\ncy.get('input[name=\"email\"]').type('test@example.com');\ncy.get('form').within(() => {\n  cy.get('button[type=\"submit\"]').click();\n});\n// Check for loading state (button disabled or loading text)\ncy.get('button[type=\"submit\"]').should('be.disabled');\ncy.wait('@contactSubmit');",
+              "err": {},
+              "uuid": "0e1104f2-f80a-4402-9f6b-7427d6381eca",
+              "parentUUID": "60861b34-2910-49ad-8ef8-7d0e308ec6c2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should trim whitespace from form inputs",
+              "fullTitle": "Contact Form Submission should trim whitespace from form inputs",
+              "timedOut": null,
+              "duration": 11181,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/contact');\ncy.get('input[name=\"firstname\"]').type('  John  ');\ncy.get('input[name=\"lastname\"]').type('  Doe  ');\ncy.get('input[name=\"email\"]').type('  test@example.com  ');\ncy.get('form').within(() => {\n  cy.get('button[type=\"submit\"]').click();\n});\n// Should submit successfully with trimmed values\ncy.contains(/success|thank you/i, {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/success|thank you/i' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: '/success|thank you/i' but never did.\n    at Context.eval (webpack://react-portfolio-client/./cypress/e2e/contact-form.cy.js:118:58)",
+                "diff": null
+              },
+              "uuid": "07427e3f-8514-41b1-a25c-30b566ee1a24",
+              "parentUUID": "60861b34-2910-49ad-8ef8-7d0e308ec6c2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4da58a9f-bb42-4d93-a798-76ad557642d6",
+            "4f94e4b5-b8bc-49ec-a4f2-7c9523b6723a",
+            "0e1104f2-f80a-4402-9f6b-7427d6381eca"
+          ],
+          "failures": [
+            "d10b9daf-71bb-442a-a680-32eb2c4fa718",
+            "3c5e2567-c019-4b49-9271-6a668032450c",
+            "5c71aa89-5dec-44e0-99dd-bcdabf5cf813",
+            "07427e3f-8514-41b1-a25c-30b566ee1a24"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 43622,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
